@@ -1,0 +1,22 @@
+<?php
+
+use Magento\Catalog\Model\Product\Type;
+use Wiktor\StructuredData\Block\Product\View\StructuredData;
+
+/**
+ * @var StructuredData $block
+ */
+$product = $block->getProduct();
+?>
+
+<?php if ($block->isAvailable($product)): ?>
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "<?= $block->getName() ?>",
+        "description": "<?= $block->getDescription() ?>",
+        "price" : "<?= $block->getPrice() ?>"
+    }
+</script>
+<?php endif; ?>
